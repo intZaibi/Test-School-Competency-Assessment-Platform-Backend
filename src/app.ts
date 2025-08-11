@@ -11,13 +11,16 @@ dotenv.config();
 const app = express();
 
 // CORS configuration
-app.use(cors({
-  origin: process.env.FRONTEND_URL || 'https://test-school-competency-assessment-p-iota.vercel.app/',
+
+const corsOptions = {
+  origin: process.env.FRONTEND_URL || 'https://test-school-competency-assessment-p-iota.vercel.app',
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization', 'Cookie'],
-  exposedHeaders: ['Set-Cookie']
-}));
+  exposedHeaders: ['Set-Cookie'],
+};
+
+app.use(cors(corsOptions));
 
 app.options('*', cors(corsOptions));
 
@@ -31,4 +34,5 @@ app.use("/api/auth", authRoutes);
 
 
 export default app;
+
 

@@ -5,8 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "nodemon --watch src --ext ts --exec \"node --loader ts-node/esm src/server.ts\"",
-    "build": "tsc",
-    "start": "npm i -D @types/node && tsc && node dist/server.js",
+    "build": "npm ci && tsc",
+    "start": "tsc && node dist/server.mjs",
     "clean": "node -e \"if (require('fs').existsSync('dist')) require('fs').rmSync('dist', { recursive: true, force: true })\"",
     "prebuild": "npm run clean",
     "seed": "node seed.js"
@@ -42,4 +42,5 @@
     "typescript": "^5.9.2"
   }
 }
+
 

@@ -12,7 +12,7 @@ const app = express();
 
 // CORS configuration
 app.use(cors({
-  origin: process.env.FRONTEND_URL || 'http://localhost:5173',
+  origin: process.env.FRONTEND_URL || 'https://test-school-competency-assessment-p-iota.vercel.app/',
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization', 'Cookie'],
@@ -26,5 +26,6 @@ app.use(morgan("dev"));
 app.use(authMiddleware);
 app.use("/api/assessments", assessmentRoutes);
 app.use("/api/auth", authRoutes);
+
 
 export default app;

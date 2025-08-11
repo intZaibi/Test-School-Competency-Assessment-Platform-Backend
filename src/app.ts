@@ -19,6 +19,8 @@ app.use(cors({
   exposedHeaders: ['Set-Cookie']
 }));
 
+app.options('*', cors(corsOptions));
+
 app.use(express.json());
 app.use(cookieParser());
 app.use(morgan("dev"));
@@ -29,3 +31,4 @@ app.use("/api/auth", authRoutes);
 
 
 export default app;
+
